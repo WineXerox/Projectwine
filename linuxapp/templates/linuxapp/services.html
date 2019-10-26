@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="django form with utf-8">
+    <meta name="author" content="wichit2s">
+    <title>Linux Services</title>
+
+    {% load static %}
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+    <style>
+      .filled {
+        width: 80%;
+        padding: 5px;
+      }
+      .spacing {
+        padding: 1em;
+      }
+      }
+      .button {
+  background-color: #ffffff;
+  border: none;
+  color: 	#000000;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 170px;
+  height: 60px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+  body {margin:25px;}
+
+  div.polaroid {
+    width: 80%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+  }
+
+  div.container {
+    text-align: center;
+    padding: 10px 20px;
+  }
+  .button {
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 170px;
+    height: 60px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .button:hover span {
+    padding-right: 25px;
+  }
+
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+    </style>
+  </head>
+  <body>
+    <nav> <h1> Linux Services Page </h1> </nav>
+    <div>
+      <section class="filled">
+        <center><form action="services" method="POST" enctype="multipart/form-data;charset=UTF-8">
+          {% csrf_token %}
+          <div class="spacing"><input class="filled" type="text" name="icon" value="name (ชื่อ)"/></div>
+          <div class="spacing"><input class="filled" type="text" name="title" value="contact (ข้อมูลติดต่อ)"/></div>
+          <div class="spacing"><input class="filled" type="text" name="detail" value="detail (รายละเอียด)"/></div>
+          <div class="w3-display-topleft w3-padding-large w3-xlarge">
+              <center><a href="index"><button class="button"><span>Submit </span></button></a></center>
+          </div>
+        </form></center>
+      </section>
+      <div><center>
+        <div class="polaroid">
+        <div class="container">
+       <table style="width:100%; border: 1px solid rgb(252, 248, 248); padding: 1em;">
+        <tr>
+          <th>NAME</th>
+          <th>CONTACT</th>
+          <th>DETAIL </th>
+          
+        </tr>
+        {% for s in services %}
+            <tr>
+              <td> <i class="fa {{s.icon}}"></i> {{ s.icon }}</td>
+              <td>{{ s.title }}</td>
+              <td>{{ s.detail }}</td>
+            </tr>
+        {% endfor %}
+        
+      </div>
+      </div>
+      </table> 
+    </center>
+    <!-- <div class="w3-display-topleft w3-padding-large w3-xlarge">
+      
+        <p align = "left"><a href="index"><button class="button" style="margin-top: 200px"><span>BACK</span></button></a></p >
+        <p align = "right"><a href="index"><button class="button" style="margin-top: -100px"><span>NEXT</span></button></a></p >
+
+  
+    </div> -->
+  
+    </div>
+
+    <div class="w3-display-topleft w3-padding-large w3-xlarge">
+      
+        <a href="index"><button class="button" style="margin-top: 200px"><span>BACK</span></button></a>
+        <a href="link1"><button class="button" style="margin-left: 79%"><span>NEXT</span></button></a>
+
+    </div>
+
+<!-- 
+
+    <footer>
+        
+      <div class="w3-bar">
+            
+        
+    </footer> -->
+  </body>
+
+</html>

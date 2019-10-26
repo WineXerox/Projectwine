@@ -25,7 +25,7 @@ SECRET_KEY = 'mba29ahg(r96mc!lxjby0)#c^x=1sy9=klya0sci)x^mg_&9m7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'winetanapol.pythonanywhere.com']
+ALLOWED_HOSTS = [u'winetanapol.pythonanywhere.com','127.0.0.1','localhost']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'linuxapp',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
+
 
 
 # Database
@@ -123,5 +125,8 @@ STATIC_URL = '/static/'
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
 MEDIA_ROOT = u'/home/winetanapol/mysite/media'
 MEDIA_URL = '/media/'
-STATIC_ROOT = u'/home/winetanapol/mysite/static'
+#STATIC_ROOT = u'/home/winetanapol/mysite/static'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')
+]
 STATIC_URL = '/static/'
